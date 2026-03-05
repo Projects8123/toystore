@@ -23,11 +23,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 # Defaults cover local dev; set ALLOWED_HOSTS env var on Railway.
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = ['toystore-production-be34.up.railway.app', 'localhost', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = os.environ.get(
-    "CSRF_TRUSTED_ORIGINS", ""
-).split(",")
+CSRF_TRUSTED_ORIGINS = ['https://toystore-production-be34.up.railway.app']
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin-allow-popups"
 
