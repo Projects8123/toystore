@@ -70,7 +70,7 @@ def store(request):
                 pass
             
     products=Product.objects.all()    
-    context={'items':items, 'order':order, 'cartItems':cartItems, 'paypal_client_id': os.environ.get('PAYPAL_CLIENT_ID', '')}
+    context={'products':products,'cartItems':cartItems}
     return render(request,'store/store.html', context)
 
 def cart(request):
@@ -167,7 +167,7 @@ def checkout(request):
                 pass
     
         
-    context={'items':items, 'order':order, 'cartItems':cartItems}
+    context={'items':items, 'order':order, 'cartItems':cartItems, 'paypal_client_id': os.environ.get('PAYPAL_CLIENT_ID', '')}
     return render(request,'store/checkout.html', context)
 
 def updateItem(request):
