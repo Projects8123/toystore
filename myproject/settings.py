@@ -128,3 +128,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PAYPAL_RECEIVER_EMAIL = os.environ.get("PAYPAL_RECEIVER_EMAIL", "")
 PAYPAL_TEST = os.environ.get("PAYPAL_TEST", "True") == "True"
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+print("CSRF:", CSRF_TRUSTED_ORIGINS)
+print("ALLOWED:", ALLOWED_HOSTS)
