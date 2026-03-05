@@ -2,4 +2,4 @@
 builder = "nixpacks"
 
 [deploy]
-startCommand = "python manage.py migrate && python manage.py createsuperuser --noinput || true && python manage.py collectstatic --noinput && gunicorn мъproject.wsgi"
+startCommand = "python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn myproject.wsgi --bind 0.0.0.0:$PORT"
