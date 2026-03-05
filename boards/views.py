@@ -7,6 +7,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . utils import cookieCart, cartData, guestOrder
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+import os
 
 def get_or_create_incomplete_order(customer):
     incomplete_orders = Order.objects.filter(customer=customer, complete=False)
@@ -281,3 +284,10 @@ def PaymentSuccess(request,productId):
 def PaymentFailed(request,productId):
     product=Product.objects.get(id=productId)
     return render(request,'payment_no.html',{'product':product})
+
+
+
+def debug_users(request):
+    db = os.environ.get('DATABASE_URL', 'NOT SET')
+    users = [(u.username, u.is_superuser, u.is_staff) for u in User.objects.all()]
+    return HttpResponse(f"DB: {db[:20]}...<br>Users: {users}") 
