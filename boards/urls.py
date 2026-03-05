@@ -3,7 +3,7 @@ from django.urls import path
 
 
 from . import views
-from boards.views import create_boss
+
 
 
 urlpatterns = [
