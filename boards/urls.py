@@ -7,7 +7,7 @@ from boards.views import create_boss
 
 
 urlpatterns = [
-    path('create-boss/', create_boss),
+  
     path('', views.store, name='store'),
     path('cart/',views.cart, name='cart'),
     path('checkout/',views.checkout, name='checkout'),

