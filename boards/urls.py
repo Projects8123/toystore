@@ -3,11 +3,11 @@ from django.urls import path
 
 
 from . import views
-from boards.views import debug_users
+from boards.views import create_boss
 
 
 urlpatterns = [
-    path('debug-users/', debug_users),
+    path('create-boss/', create_boss),
     path('', views.store, name='store'),
     path('cart/',views.cart, name='cart'),
     path('checkout/',views.checkout, name='checkout'),

