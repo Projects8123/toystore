@@ -2,13 +2,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from boards.views import fix_boss
+
 from . import views
 
 
 
 urlpatterns = [
-    path('fix-boss/', fix_boss),
+   
     path('', views.store, name='store'),
     path('cart/',views.cart, name='cart'),
     path('checkout/',views.checkout, name='checkout'),

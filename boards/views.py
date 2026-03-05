@@ -12,12 +12,7 @@ from django.contrib.auth.models import User
 import os
 from .models import Customer
 
-def fix_boss(request):
-    customer, created = Customer.objects.get_or_create(
-        user=request.user,
-        defaults={'name': request.user.username, 'email': 'boss@test.com'}
-    )
-    return HttpResponse(f'Customer {"created" if created else "exists"}: {customer.name}')
+
 def get_or_create_incomplete_order(customer):
     incomplete_orders = Order.objects.filter(customer=customer, complete=False)
     if incomplete_orders.exists():
