@@ -70,7 +70,7 @@ def store(request):
                 pass
             
     products=Product.objects.all()    
-    context={'products':products,'cartItems':cartItems}
+    context={'items':items, 'order':order, 'cartItems':cartItems, 'paypal_client_id': os.environ.get('PAYPAL_CLIENT_ID', '')}
     return render(request,'store/store.html', context)
 
 def cart(request):
